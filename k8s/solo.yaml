@@ -70,24 +70,3 @@ spec:
   - name: http
     port: 80
     targetPort: 8080
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: solo
-  namespace: solo
-  labels:
-    app: solo
-spec:
-  ingressClassName: nginx
-  rules:
-  - host: solo.holm.team
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: solo
-            port:
-              number: 80
